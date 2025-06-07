@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import *
-import copy
 import numpy as np
 
 class Environment:
@@ -29,7 +28,6 @@ class Environment:
         while not self.finished_game():
             self.step_forward()
             self.log_state()
-        return
     
     
     def step_forward(self):
@@ -79,7 +77,6 @@ class Map:
         """
         self.graph = graph
         self.num_nodes = len(self.graph)
-        return
     
     
     def get_neighbors(self, node: int) -> List[int]:
@@ -117,7 +114,6 @@ class State:
         self.good_kitty.state = self
         self.evil_kitty.map = self.map
         self.good_kitty.map = self.map
-        return
 
 
 class Kitty:
@@ -159,7 +155,6 @@ class Kitty:
         self.qlearn_algorithm = qlearn_algorithm
         self.train = False
         self.random_strategy = True
-        return
     
     
     def setup_learning_algorithm(self, learning_rate: float, discount_factor: float, epsilon: float):
@@ -287,7 +282,7 @@ class QLearnAlgorithm:
         self.num_actions = self.map.num_nodes
         self.qtable = None
         self.init_qtable()
-        pass
+    
     
     def init_qtable(self):
         """Initializes que q-learn table with zeros
