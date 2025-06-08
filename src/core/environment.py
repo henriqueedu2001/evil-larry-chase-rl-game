@@ -291,6 +291,24 @@ class QLearnAlgorithm:
         self.qtable = np.zeros(shape=(n**3, n))
     
     
+    def save_qtable(self, path: str):
+        """Saves the q-table as a .npy file
+
+        Args:
+            path (str): the saving path (not Jesus)
+        """
+        np.save(path, self.qtable)
+    
+    
+    def load_qtable(self, path: str):
+        """Load q-table from a .npy file
+
+        Args:
+            path (str): the loading path
+        """
+        self.qtable = np.load(path)
+    
+    
     def get_best_action(self, state: State) -> int:
         """Computes the best action a, on the current state S, from the q-learn algorithm
 
